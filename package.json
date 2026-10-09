@@ -1,0 +1,9 @@
+{
+  "name": "auction-marketplace",
+  "version": "1.0.0",
+  "description": "Auction marketplace MVP with Node.js, JSON persistence, bidding, comments, wallet ledger, and PayPal integration scaffolding",
+  "main": "server.js",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js" },
+  "dependencies": { "dotenv": "^16.4.7", "express": "^4.21.2" },
+  "engines": { "node": ">=18" }
+}

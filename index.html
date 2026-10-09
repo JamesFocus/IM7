@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auction Market — Find your next favorite</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">A</span><span>Auction<span class="brand-light">Market</span></span></a>
+  <nav><a class="nav-active" href="#feed">Discover</a><a href="#wallet">My wallet</a><a href="#history">Activity</a></nav>
+  <div class="account"><span class="online-dot"></span><select id="userSelect" aria-label="Choose demo user"></select><span id="avatar" class="avatar">D</span></div>
+</header>
+<main>
+<section class="hero">
+ <div><div class="eyebrow"><span class="eyebrow-dot"></span> THE MARKETPLACE FOR GREAT FINDS</div><h1>Good things go<br><em>to the highest bidder.</em></h1><p>Discover unique finds, place your bid, and let the best offer win.</p>
+ <div class="hero-actions"><a class="button button-dark" href="#feed">Explore auctions <span>↘</span></a><button class="button button-outline" id="heroPost">＋ List an item</button></div></div>
+ <div class="hero-art"><div class="art-glow"></div><div class="art-card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=85" alt="Minimal wristwatch"><div class="art-caption"><span>FEATURED FIND</span><strong>Timeless by design.</strong><div class="art-price"><b>$86.00</b><span>Current bid</span></div></div></div><div class="float-tag">↗ <b>Real-time</b><br>community bidding</div><div class="hero-stamp">BID<br>BETTER.</div></div>
+</section>
+<section class="stats"><div><span class="stat-num" id="statActive">—</span><span>Live auctions</span></div><div><span class="stat-num">USD <span class="tiny-dot">●</span></span><span>Every bid in dollars</span></div><div><span class="stat-num">Your turn</span><span>Find something special</span></div></section>
+<section id="feed" class="feed-section">
+ <div class="section-head"><div><div class="eyebrow">THE COMMUNITY FEED</div><h2>Open for bidding<span class="accent-dot">.</span></h2><p>Fresh listings from people like you.</p></div><div class="feed-tools"><label class="searchbox">⌕ <input id="search" placeholder="Search the feed…"></label><select id="filter"><option value="all">All items</option><option value="active">Live auctions</option><option value="ended">Ended</option><option value="mine">My listings</option></select><button class="button button-dark" id="postBtn">＋ Post an item</button></div></div>
+ <div id="feedGrid" class="feed-grid"></div><div id="empty" class="empty hidden">No listings match your search yet.</div>
+</section>
+<section id="wallet" class="wallet-section">
+ <div class="wallet-card"><div class="wallet-top"><div><div class="eyebrow light-eyebrow">YOUR AUCTION POCKET</div><p>Available balance</p><div class="wallet-balance" id="walletBalance">$0.00 <span>USD</span></div></div><div class="wallet-icon">＄</div></div><div class="wallet-bottom"><span><i class="online-dot"></i> Wallet balance</span><span>Refills through PayPal</span></div></div>
+ <div class="refill-panel"><div class="eyebrow">ADD FUNDS</div><h3>Ready to make a move?</h3><p>Refill your pocket securely, then get in on the bidding.</p><div class="amount-options"><button data-amount="10">$10</button><button data-amount="25" class="selected">$25</button><button data-amount="50">$50</button><button data-amount="100">$100</button></div><label class="input-label">Custom amount (USD)<input id="refillAmount" type="number" min="5" max="10000" step=".01" value="25"></label><button id="refillBtn" class="button button-dark full-width">Continue with PayPal ↗</button><small>PayPal sandbox/demo mode is for testing only. Real payments require your own credentials.</small></div>
+</section>
+<section id="history" class="history-section"><div class="section-head"><div><div class="eyebrow">YOUR RECORD</div><h2>Recent activity<span class="accent-dot">.</span></h2></div><button id="refreshHistory" class="button button-outline">Refresh activity ↻</button></div><div id="historyList" class="history-list"><div class="empty">Choose an account to see its activity.</div></div></section>
+<footer><a class="brand" href="#"><span class="brand-mark">A</span><span>Auction<span class="brand-light">Market</span></span></a><span>Built for good finds and fair bids.</span><span>USD · Community marketplace</span></footer>
+</main>
+<div id="postModal" class="modal hidden"><div class="modal-backdrop" data-close></div><div class="modal-panel"><button class="close" data-close>×</button><div class="eyebrow">MAKE IT YOUR LISTING</div><h2>Put something up for auction.</h2><p class="modal-intro">Add the details. Your item will appear in the community feed.</p><form id="postForm">
+<label>Item title<input name="title" required minlength="3" maxlength="100" placeholder="e.g. Classic film camera"></label>
+<label>Description<textarea name="description" rows="3" maxlength="2000" placeholder="Condition, story, what's included…"></textarea></label>
+<div class="form-row"><label>Category<select name="category"><option>Collectibles</option><option>Fashion</option><option>Electronics</option><option>Home</option><option>Art</option><option>Other</option></select></label><label>Starting bid (USD)<input name="startingPrice" type="number" min="1" step=".01" value="10" required></label></div>
+<label>Image URL (optional)<input name="imageUrl" type="url" placeholder="https://…"></label><label>Auction duration<select name="durationHours"><option value="1">1 hour</option><option value="6">6 hours</option><option value="24" selected>24 hours</option><option value="72">3 days</option><option value="168">7 days</option></select></label>
+<button class="button button-dark full-width" type="submit">Publish auction ↗</button></form></div></div>
+<div id="toast" class="toast"></div>
+<script src="/app.js"></script>
+</body></html>
